@@ -1,0 +1,19 @@
+.description {
+  font-family: var(--game2048-global-font-family);
+  line-height: var(--game2048-global-font-height);
+  color: var(--game2048-global-color-primary);
+  font-size: 18px;
+}
+
+.description p:first-child {
+  margin-top: 0;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
+.description a,
+.description b {
+  color: var(--game2048-global-color-primary-light);
+}

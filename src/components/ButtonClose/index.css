@@ -1,0 +1,45 @@
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 0;
+  height: 40px;
+  width: 40px;
+	background: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.figure {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	transform: rotate(45deg);
+	transition: transform ease 100ms;
+}
+
+.figure:before {
+	position: absolute;
+	content: "";
+	width: 3px;
+	height: 100%;
+	border-radius: 4px;
+	background: white;
+}
+
+.figure:after {
+	position: absolute;
+	content: "";
+	height: 3px;
+	width: 100%;
+	border-radius: 4px;
+	background: white;
+}
+
+.figure:hover {
+	transform: rotate(45deg) scale(1.1);
+}

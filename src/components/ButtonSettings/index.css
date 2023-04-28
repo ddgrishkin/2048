@@ -1,0 +1,83 @@
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  position: relative;
+  background: none;
+}
+
+.button:hover .figure {
+  opacity: 1;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.figure {
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-out;
+}
+
+.circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--game2048-global-color-primary-text);
+}
+
+.circle:after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: relative;
+  background: var(--game2048-global-color-primary-bg);
+}
+
+.second {
+  transform: rotate(45deg);
+}
+
+.second,
+.first {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second:before,
+.first:before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  display: block;
+  position: absolute;
+  border-radius: 1px;
+  background: var(--game2048-global-color-primary-text);
+}
+
+.second:after,
+.first:after {
+  content: "";
+  width: 4px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: 1px;
+  background: var(--game2048-global-color-primary-text);
+}

@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+}
+
+.cell {
+  padding: var(--game2048-cell-padding);
+  box-sizing: border-box;
+}
+
+.inner {
+  padding-top: 100%;
+  width: 100%;
+  border-radius: 4px;
+  background: var(--game2048-global-color-secondary);
+}

@@ -1,0 +1,42 @@
+.score {
+  padding: 0 32px;
+  border-radius: 4px;
+  color: var(--game2048-global-color-secondary-text);
+  background: var(--game2048-global-color-secondary-bg);
+  font-size: 24px;
+  line-height: 28px;
+  font-family: monospace;
+  font-weight: bold;
+  position: relative;
+  line-height: 40px;
+  height: 40px;
+}
+
+.score:before {
+  content: "Score";
+  display: block;
+  position: absolute;
+  font-size: 14px;
+  font-family: var(--game2048-global-font-family);
+  line-height: var(--game2048-global-font-height);
+  left: 50%;
+  transform: translateX(-50%);
+  top: -18px;
+}
+
+.pop {
+  display: block;
+  animation: pop 100ms ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  } 
+}

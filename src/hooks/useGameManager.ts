@@ -48,17 +48,17 @@ export function useGameManager(config: GameConfig) {
 					return acc;
 				}, []);
 
-				moveState.merges.values().forEach(({value, to}) => {
-					const newCell = new ReactCell(value, to);
-					cellsCopy.push(newCell);
-				}, []);
-
 				moveState.transitions.values().forEach(({from, to}) => {
 					const fromCell = cellByCoord.get(from);
 					if (fromCell) {
 						fromCell.move(to);
 					}
 				});
+
+				moveState.merges.values().forEach(({value, to}) => {
+					const newCell = new ReactCell(value, to);
+					cellsCopy.push(newCell);
+				}, []);
 
 				if (moveState.newValue) {
 					const {coord, value} = moveState.newValue;
@@ -75,7 +75,6 @@ export function useGameManager(config: GameConfig) {
 	}, []);
 
 	useEffect(() => () => {
-		console.log('restart');
 		restart();
 	}, [config]);
 

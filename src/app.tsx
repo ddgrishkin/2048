@@ -1,7 +1,6 @@
 import React from 'react';
-import {DialogManager} from 'lib/dialog';
-import {DialogManagerContext, initialValue} from 'lib/dialog/context';
 import {GameView} from 'components/GameView';
+import {DialogManagerContext, initialValue} from 'lib/dialog/context';
 import './index.css';
 
 export default function App() {

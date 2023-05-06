@@ -2,22 +2,3 @@ html, body {
   padding: 0;
   margin: 0;
 }
-
-:root {
-  --game2048-global-font-family: monospace;
-  --game2048-global-font-height: 1.2;
-
-  /* colors */
-  --game2048-global-color-black: #333;
-  --game2048-global-color-white: white;
-
-  /* primary */
-  --game2048-global-color-primary: #159947;
-  --game2048-global-color-primary-bg: #06373A;
-  --game2048-global-color-primary-text: white;
-
-  /* secondary */
-  --game2048-global-color-secondary: #A6B568;
-  --game2048-global-color-secondary-bg: #5B6948;
-  --game2048-global-color-secondary-text: white;
-}

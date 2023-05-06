@@ -4,10 +4,11 @@
   position: relative;
   width: 100%;
   padding: 8px;
-  background: var(--game2048-global-color-secondary-bg);
+  background: var(--game2048-global-color-primary-100);
+  box-shadow: 0 0 128px var(--game2048-global-color-secondary-400);
   border-radius: 4px;
   box-sizing: border-box;
-  box-shadow: 0 0 128px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
 }
 
 .inner {
@@ -28,7 +29,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--game2048-global-color-primary-400);
   display: flex;
   flex-direction: column;
   align-items: center;

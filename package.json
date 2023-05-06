@@ -1,5 +1,5 @@
 {
-  "name": "2048",
+  "name": "@ddgrishkin/2048",
   "version": "0.0.1",
   "description": "2048 game",
   "main": "index.js",
@@ -15,6 +15,7 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@types/uuid": "^9.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",

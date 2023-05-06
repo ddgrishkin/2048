@@ -1,23 +1,7 @@
-.container {
-  padding: 16px;
-  background-color: var(--game2048-global-color-primary-bg);
-
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  height: 100vh;
-  min-height: 1000px;
-
-  --game2048-cell-width: 132px;
-  --game2048-cell-height: 132px;
-  --game2048-cell-padding: 8px;
-}
-
 .content {
   display: grid;
   grid-gap: 16px;
   outline: none;
-  margin: 0 auto;
   max-width: 544px;
   width: 100%;
 }
@@ -38,7 +22,7 @@
 .title {
   font-size: 96px;
   line-height: 70px;
-  color: var(--game2048-global-color-primary);
+  color: var(--game2048-global-color-secondary-text-100);
   font-family: var(--game2048-global-font-family);
   font-weight: bold;
 }

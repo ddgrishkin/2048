@@ -1,7 +1,7 @@
 .description {
   font-family: var(--game2048-global-font-family);
   line-height: var(--game2048-global-font-height);
-  color: var(--game2048-global-color-primary);
+  color: var(--game2048-global-color-secondary-text-100);
   font-size: 18px;
 }
 
@@ -15,5 +15,5 @@
 
 .description a,
 .description b {
-  color: var(--game2048-global-color-primary-light);
+  color: var(--game2048-global-color-secondary-text-100);
 }

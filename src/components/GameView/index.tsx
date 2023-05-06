@@ -56,22 +56,20 @@ export function GameView() {
 
 	return (
 		<GameConfigContext.Provider value={config}>
-			<div className={styles.container}>
-				<div className={styles.content}>
-					<div className={styles.header}>
-						<div className={styles.info}>
-							<div className={styles.controls}>
-								<Score value={score} />
-								<ButtonRestart onClick={restart} />
-							</div>
-							<ButtonSettings onClick={handleOpenSettings} />
+			<div className={styles.content}>
+				<div className={styles.header}>
+					<div className={styles.info}>
+						<div className={styles.controls}>
+							<Score value={score} />
+							<ButtonRestart onClick={restart} />
 						</div>
+						<ButtonSettings onClick={handleOpenSettings} />
 					</div>
-					<div {...handlers} className={styles.field}>
-						<FieldView cells={cells} isOver={isOver} />
-					</div>
-					<Description />
 				</div>
+				<div {...handlers} className={styles.field}>
+					<FieldView cells={cells} isOver={isOver} />
+				</div>
+				<Description />
 			</div>
 		</GameConfigContext.Provider>
 	);

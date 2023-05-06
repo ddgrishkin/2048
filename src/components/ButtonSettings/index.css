@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--game2048-global-color-primary-text);
+  background: var(--game2048-global-color-primary-text-100);
 }
 
 .circle:after {
@@ -43,7 +43,7 @@
   height: 12px;
   border-radius: 50%;
   position: relative;
-  background: var(--game2048-global-color-primary-bg);
+  background: var(--game2048-global-color-secondary-100);
 }
 
 .second {
@@ -68,7 +68,7 @@
   display: block;
   position: absolute;
   border-radius: 1px;
-  background: var(--game2048-global-color-primary-text);
+  background: var(--game2048-global-color-primary-text-100);
 }
 
 .second:after,
@@ -79,5 +79,5 @@
   display: block;
   position: absolute;
   border-radius: 1px;
-  background: var(--game2048-global-color-primary-text);
+  background: var(--game2048-global-color-primary-text-100);
 }

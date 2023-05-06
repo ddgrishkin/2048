@@ -1,8 +1,8 @@
 .score {
   padding: 0 32px;
   border-radius: 4px;
-  color: var(--game2048-global-color-secondary-text);
-  background: var(--game2048-global-color-secondary-bg);
+  color: var(--game2048-global-color-primary-text-100);
+  background: var(--game2048-global-color-primary-100);
   font-size: 24px;
   line-height: 28px;
   font-family: monospace;

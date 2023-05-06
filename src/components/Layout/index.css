@@ -1,0 +1,15 @@
+.container {
+  padding: 16px;
+  background-color: var(--game2048-global-color-secondary-100);
+
+  display: flex;
+  align-items: center;
+	justify-content: center;
+  box-sizing: border-box;
+  height: 100vh;
+  min-height: 1000px;
+
+  --game2048-cell-width: 132px;
+  --game2048-cell-height: 132px;
+  --game2048-cell-padding: 4px;
+}

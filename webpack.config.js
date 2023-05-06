@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageJson = require('./package.json');
 
@@ -13,11 +14,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
-		library: {
-			name: ['__module_manager__', packageJson.name],
-			type: 'window',
-			export: 'default',
-		},
+    // library: {
+    //   type: 'assign',
+    //   name: 'mylib',
+    //   export: 'default',
+    // },
   },
 
   module: {
@@ -45,6 +46,11 @@ module.exports = {
   },
 
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        path.resolve(__dirname, './src/theme.css'),
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './development.html'),
       chunks: ['dev'],
@@ -68,6 +74,7 @@ module.exports = {
   devServer: {
 		port: process.env.PORT,
 		static: {
+      directory: path.join(__dirname, 'dist'),
 			publicPath: '/',
 		},
   },

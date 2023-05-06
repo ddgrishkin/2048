@@ -1,5 +1,5 @@
 import {ModalOverlay} from 'components/ModalOverlay/index';
-import React from 'react';
+import React, {forwardRef} from 'react';
 import styles from './index.css';
 
 export type Props = {
@@ -7,9 +7,9 @@ export type Props = {
   children: React.ReactNode;
 }
 
-export function Dialog({children, onClose}: Props) {
+export const Dialog = forwardRef<HTMLDivElement, Props>(({children, onClose}, ref) => {
   return (
-    <ModalOverlay>
+    <ModalOverlay ref={ref}>
       <div className={styles.container}>
         <div className={styles.scrim} onClick={onClose} />
         <div className={styles.content}>
@@ -18,4 +18,4 @@ export function Dialog({children, onClose}: Props) {
       </div>
     </ModalOverlay>
   );
-}
+});

@@ -1,7 +1,7 @@
 import React from 'react';
 import {createRoot, Root} from 'react-dom/client';
 
-const DIALOG_CONTAINER = document.getElementById('dialog');
+const DIALOG_CONTAINER = document.getElementById('dialog') || document.body;
 
 export class DialogManager {
 	reactRoot: Root;

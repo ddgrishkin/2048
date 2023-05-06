@@ -2,7 +2,7 @@ import {Dialog} from 'components/Dialog';
 import {ButtonClose} from 'components/ButtonClose';
 import {RadioButton} from 'form/RadioButton';
 import {GameConfig} from 'lib/game/types';
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, forwardRef} from 'react';
 import cn from 'classnames';
 import styles from './index.css';
 
@@ -15,7 +15,7 @@ export type Props = {
 const VALUES_ROWS = [2, 3, 4, 5];
 const VALUES_DIGIT = [2, 3, 5, 7];
 
-export function DialogSettings({config, onClose, onSave}: Props) {
+export const DialogSettings = forwardRef<HTMLDivElement, Props>(({config, onClose, onSave}, ref) => {
   const [nextConfig, setNextConfig] = useState(() => ({...config}));
   const handleChangeDigit = useCallback((nextDigit: string) => {
     setNextConfig((currConfig) => ({
@@ -37,7 +37,7 @@ export function DialogSettings({config, onClose, onSave}: Props) {
   }, [onSave, onClose, nextConfig]);
 
   return (
-    <Dialog onClose={onClose}>
+    <Dialog ref={ref} onClose={onClose}>
       <div className={styles.content}>
         <div className={styles.actions}><ButtonClose onClick={onClose} /></div>
         <label className={styles.label}>
@@ -100,4 +100,4 @@ export function DialogSettings({config, onClose, onSave}: Props) {
       </div>
     </Dialog>
   );
-}
+});

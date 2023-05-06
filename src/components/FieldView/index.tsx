@@ -5,11 +5,15 @@ import {GridView} from './GridView';
 import {CellView} from './CellView';
 
 type Props = {
+  // move over view outside
   isOver: boolean;
   cells: ReactCell[];
 };
 
-export const FieldView = forwardRef<HTMLDivElement, Props>(({isOver, cells}, ref) => {
+export const FieldView = forwardRef<HTMLDivElement, Props>(({
+  isOver,
+  cells,
+}, ref) => {
   return (
     <div className={styles.field} ref={ref}>
       <div className={styles.inner}>
@@ -20,8 +24,10 @@ export const FieldView = forwardRef<HTMLDivElement, Props>(({isOver, cells}, ref
       </div>
       {isOver && (
         <div className={styles.over}>
-          <div>Game</div>
-          <div>Over</div>
+          <div className={styles.text}>
+            <div>Game</div>
+            <div>Over</div>
+          </div>
         </div>
       )}
     </div>

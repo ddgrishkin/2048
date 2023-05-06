@@ -11,10 +11,10 @@ type Props = {
 }
 
 export function RadioButton({name, value, children, checked, defaultChecked, onClick}: Props) {
-	const inputRef = useRef(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 	const handleClick = useCallback(() => {
 		if (inputRef.current) {
-			onClick(value);
+			onClick?.(value);
 			inputRef.current.click();
 		}
 	}, [onClick, value]);

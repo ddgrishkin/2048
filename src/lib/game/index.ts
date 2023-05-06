@@ -47,7 +47,7 @@ export class Game {
 
 		// Add new value on the field if it has vacant cells.
 		// Just take such cell randomly and fill it.
-		let newValue: GameMoveState['newValue'];
+		let newValue: GameMoveState['newValue'] = undefined;
 		if (emptyCoords.length > 0 && transitions.size > 0) {
 			const emptyCoord = randomElement(emptyCoords);
 			this.field.addValue(this.config.digit, emptyCoord);
@@ -72,6 +72,8 @@ export class Game {
 			});
 		}
 
+		// TODO
+		// @ts-ignore
 		return {
 			merges,
 			newValue,

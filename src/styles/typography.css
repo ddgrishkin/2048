@@ -1,0 +1,11 @@
+:root {
+	--game2048-global-font-family: monospace;
+  --game2048-global-font-height: 1.2;
+
+	/* font sizes */
+	--game2048-global-font-size-xl: 28px;
+	--game2048-global-font-size-lg: 20px;
+	--game2048-global-font-size-md: 16px;
+	--game2048-global-font-size-sm: 14px;
+	--game2048-global-font-size-xs: 12px;
+}

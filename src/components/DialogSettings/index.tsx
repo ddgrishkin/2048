@@ -84,7 +84,7 @@ export function DialogSettings({config, onClose, onSave}: Props) {
             ))}
           </div>
         </label>
-        <div className={styles.footer}>
+        <div>
           <button
             role='button'
             onClick={handleSave}

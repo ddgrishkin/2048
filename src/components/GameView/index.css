@@ -1,6 +1,6 @@
 .content {
   display: grid;
-  grid-gap: 16px;
+  grid-gap: var(--game2048-global-layout-grid-gap);
   outline: none;
   max-width: 544px;
   width: 100%;
@@ -21,9 +21,9 @@
 
 .title {
   font-size: 96px;
-  line-height: 70px;
   color: var(--game2048-global-color-secondary-text-100);
   font-family: var(--game2048-global-font-family);
+  line-height: var(--game2048-global-font-height);
   font-weight: bold;
 }
 

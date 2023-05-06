@@ -1,24 +1,18 @@
 require('dotenv').config();
+
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const packageJson = require('./package.json');
+const getEntry = require('./webpack/getEntry');
+const getPlugins = require('./webpack/getPlugins');
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: {
-    app: './src/app.tsx',
-    dev: './src/index.tsx',
-  },
+  entry: getEntry(),
+  plugins: getPlugins(),
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    // library: {
-    //   type: 'assign',
-    //   name: 'mylib',
-    //   export: 'default',
-    // },
+    filename: '[name].js',
   },
 
   module: {
@@ -35,8 +29,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                // for production '[hash:base64]'
-                localIdentName: `${packageJson.name}_[folder]--[local]`,
+                localIdentName: isProduction
+                  ? '[hash:base64]'
+                  : '2048_[folder]--[local]',
               },
             },
           },
@@ -44,18 +39,6 @@ module.exports = {
       },
     ],
   },
-
-  plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        path.resolve(__dirname, './src/theme.css'),
-      ],
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './development.html'),
-      chunks: ['dev'],
-    }),
-  ],
 
   resolve: {
     alias: {

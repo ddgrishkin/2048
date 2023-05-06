@@ -1,9 +1,10 @@
 .content {
-  padding: 56px;
+  padding: 36px;
   display: grid;
   gap: 24px;
   grid-template-columns: min-content;
-  background: var(--game2048-global-color-primary-bg);
+  background: var(--game2048-global-color-secondary-100);
+  border-radius: 8px;
 }
 
 .actions {
@@ -13,24 +14,24 @@
 }
 
 .option {
-  height: 72px;
-  width: 72px;
+  height: 56px;
+  width: 56px;
   border-radius: 4px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--game2048-global-color-primary-bg);
-  color: var(--game2048-global-color-secondary);
-  border: 2px solid var(--game2048-global-color-secondary);
+  background: var(--game2048-global-color-secondary-400);
+  color: var(--game2048-global-color-secondary-text-400);
+  border: 2px solid var(--game2048-global-color-secondary-400);
   font-family: var(--game2048-global-font-family);
+  font-size: var(--game2048-global-font-size-lg);
   font-weight: bold;
-  font-size: 24px;
 }
 
 .active {
-  background: var(--game2048-global-color-secondary);
-  color: var(--game2048-global-color-secondary-text);
+  background: var(--game2048-global-color-secondary-100);
+  color: var(--game2048-global-color-secondary-text-100);
 }
 
 .form {
@@ -41,11 +42,11 @@
 
 .text {
   display: block;
-  color: var(--game2048-global-color-secondary-text);
+  color: var(--game2048-global-color-secondary-text-100);
   font-family: var(--game2048-global-font-family);
+  font-size: var(--game2048-global-font-size-md);
+  line-height: var(--game2048-global-font-height);
   font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
   margin-bottom: 4px;
 }
 
@@ -53,10 +54,6 @@
   align-items: center;
   display: flex;
   gap: 4px;
-}
-
-.footer {
-  padding-top: 16px;
 }
 
 .button {
@@ -68,18 +65,26 @@
   width: 100%;
   border-radius: 4px;
   position: relative;
-  background: var(--game2048-global-color-secondary);
-  color: var(--game2048-global-color-secondary-text);
+  background: var(--game2048-global-color-secondary-400);
+  color: var(--game2048-global-color-secondary-text-400);
   font-family: var(--game2048-global-font-family);
-  font-size: 18px;
+  font-size: var(--game2048-global-font-size-md);
+  line-height: var(--game2048-global-font-height);
   font-weight: bold;
 }
 
+.button:hover {
+  background: var(--game2048-global-color-secondary-100);
+  color: var(--game2048-global-color-secondary-text-100);
+  border: 2px solid var(--game2048-global-color-secondary-400);
+}
+
 .hint {
-  margin-top: 8px;
-  font-family: var(--game2048-global-font-family);
-  color: var(--game2048-global-color-primary-text);
   display: inline-block;
   text-align: center;
-  font-size: 12px;
+  margin-top: 8px;
+  font-family: var(--game2048-global-font-family);
+  font-size: var(--game2048-global-font-size-sm);
+  line-height: var(--game2048-global-font-height);
+  color: var(--game2048-global-color-secondary-text-100);
 }

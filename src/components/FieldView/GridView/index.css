@@ -8,8 +8,8 @@
 }
 
 .inner {
-  padding-top: 100%;
   width: 100%;
+  padding-top: 100%;
   border-radius: 4px;
   background: var(--game2048-global-color-primary-200);
 }

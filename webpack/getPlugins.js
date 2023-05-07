@@ -2,8 +2,12 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const BASE_PLUGINS = [
+	new CssMinimizerPlugin(),
+	new MiniCssExtractPlugin(),
 	new CleanWebpackPlugin({
 		protectWebpackAssets: false,
 		cleanAfterEveryBuildPatterns: ['*LICENSE.txt'],
@@ -12,7 +16,7 @@ const BASE_PLUGINS = [
 		patterns: [
 			{
 				from: path.resolve(__dirname, '../src/styles'),
-				to: 'styles',
+				to: 'css',
 			},
 		],
 	}),

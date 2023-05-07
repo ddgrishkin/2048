@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getEntry = require('./webpack/getEntry');
 const getPlugins = require('./webpack/getPlugins');
 const isProduction = process.env.NODE_ENV === 'production';
@@ -24,7 +25,7 @@ module.exports = {
 			{
         test: /\.css$/i,
         use: [
-					'style-loader',
+          MiniCssExtractPlugin.loader,
 					{
             loader: 'css-loader',
             options: {
@@ -41,17 +42,15 @@ module.exports = {
   },
 
   resolve: {
-    alias: {
-      'react': path.parse(require.resolve('react')).dir,
-      'react-dom': path.parse(require.resolve('react-dom')).dir,
-    },
     extensions: ['.js', '.ts', '.tsx'],
     modules: ['./src', 'node_modules'],
   },
 
 	externals: {
+    'classnames': isProduction,
 		'react': 'React',
 		'react-dom': 'ReactDOM',
+    'uuid': isProduction,
 	},
 
   devServer: {

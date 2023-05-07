@@ -1,20 +1,30 @@
 import React, {useCallback, useEffect, useState, useRef} from 'react';
 import {useSwipeable} from 'react-swipeable';
+
+// hooks imports
 import {useGameManager} from 'hooks/useGameManager';
+import {useClickOutside} from 'hooks/useClickOutside';
+import {useBooleanState} from 'hooks/useBooleanState';
+
+// components imports
 import {Score} from 'components/Score';
-import {FieldView} from 'components/FieldView';
-import {Description} from 'components/Description';
 import {ButtonRestart} from 'components/ButtonRestart';
 import {ButtonSettings} from 'components/ButtonSettings';
 import {DialogSettings} from 'components/DialogSettings';
-import {DEFAULT_CONFIG} from 'lib/game/constants';
-import {DIRECTION_BY_KEY, DIRECTION_BY_SWIPE} from 'lib/game/constants';
-import {useBooleanState} from 'hooks/useBooleanState';
+
+// lib imports
+import {throttle} from 'lib/event';
 import {useDialogManager} from 'lib/dialog/hooks';
 import {GameConfigContext} from 'lib/game/context';
-import {throttle} from 'lib/event';
+import {DEFAULT_CONFIG} from 'lib/game/constants';
+import {DIRECTION_BY_KEY, DIRECTION_BY_SWIPE} from 'lib/game/constants';
+
+// local imports
+import {GridView} from './GridView';
+import {CellsView} from './CellsView';
+import {OverView} from './OverView';
+import {PlayView} from './PlayView';
 import styles from './index.css';
-import {useClickOutside} from 'hooks/useClickOutside';
 
 const THROTTLE_DURATION = 100;
 
@@ -72,32 +82,22 @@ export function GameView() {
 
 	return (
 		<GameConfigContext.Provider value={config}>
-			<div className={styles.container}>
-				<div ref={contentRef} className={styles.content}>
-					<div className={styles.header}>
-						<div className={styles.info}>
-							<div className={styles.controls}>
-								<Score value={score} />
-								<ButtonRestart onClick={restart} />
-							</div>
-							<ButtonSettings onClick={handleOpenSettings} />
+			<div ref={contentRef} className={styles.content} onClick={progressState.setTrue}>
+				<div className={styles.header}>
+					<div className={styles.info}>
+						<div className={styles.controls}>
+							<Score value={score} />
+							<ButtonRestart onClick={restart} />
 						</div>
-					</div>
-					<div {...handlers} className={styles.field}>
-						<FieldView
-							cells={cells}
-							isOver={isOver}
-						/>
-						{!progressState.value && (
-							<div className={styles.progress}>
-								<button className={styles.button} onClick={progressState.setTrue}>
-									PLAY
-								</button>
-							</div>
-						)}
+						<ButtonSettings onClick={handleOpenSettings} />
 					</div>
 				</div>
-				<Description />
+				<div {...handlers} className={styles.field}>
+					<GridView />
+					<CellsView cells={cells} />
+					{isOver && <OverView />}
+					{!isOver && !progressState.value && <PlayView />}
+				</div>
 			</div>
 		</GameConfigContext.Provider>
 	);

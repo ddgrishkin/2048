@@ -1,8 +1,7 @@
-import {useGame} from 'hooks/useGame';
-import {useGameConfig} from 'hooks/useGameConfig';
 import React, {useMemo} from 'react';
-import styles from './index.css';
+import {useGameConfig} from 'hooks/useGameConfig';
 import {getCellKey, getRowKey} from './utils';
+import styles from './index.css';
 
 export function GridView() {
   const {rows, cols} = useGameConfig();
@@ -10,7 +9,7 @@ export function GridView() {
   const style = {width: `${width}%`};
 
   return (
-    <div>
+    <div className={styles.container}>
       {new Array(rows).fill(null).map((_, rowIndex) => (
         <div className={styles.row} key={getRowKey(rowIndex)}>
           {new Array(cols).fill(null).map((_, cellIndex) => (

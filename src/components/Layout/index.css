@@ -12,6 +12,5 @@
   .container {
     --game2048-cell-padding: 4px;
     --game2048-cell-font-size: 22px;
-    --game2048-global-layout-grid-gap: 8px;
   }
 }

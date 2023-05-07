@@ -14,6 +14,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+    library: {
+      type: 'umd',
+    },
   },
 
   module: {
@@ -47,10 +50,10 @@ module.exports = {
   },
 
 	externals: {
-    'classnames': isProduction,
-		'react': 'React',
-		'react-dom': 'ReactDOM',
     'uuid': isProduction,
+		'react': isProduction || 'React',
+		'react-dom': isProduction || 'ReactDOM',
+    'classnames': isProduction,
 	},
 
   devServer: {

@@ -1,14 +1,12 @@
 import React from 'react';
 import {createRoot, Root} from 'react-dom/client';
 
-const DIALOG_CONTAINER = document.getElementById('dialog') || document.body;
-
 export class DialogManager {
 	reactRoot: Root;
 
 	container: HTMLElement;
 
-	constructor(container = DIALOG_CONTAINER) {
+	constructor(container: HTMLElement) {
 		this.container = container;
 		this.reactRoot = createRoot(container);
 	}

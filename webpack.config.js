@@ -12,6 +12,7 @@ module.exports = {
   plugins: getPlugins(),
 
   output: {
+    globalObject: 'this',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     library: {

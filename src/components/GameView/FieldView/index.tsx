@@ -3,7 +3,7 @@ import {useGameConfig} from 'hooks/useGameConfig';
 import {getCellKey, getRowKey} from './utils';
 import styles from './index.css';
 
-export function GridView() {
+export function FieldView() {
   const {rows, cols} = useGameConfig();
   const width = useMemo(() => 100 / cols, [cols]);
   const style = {width: `${width}%`};

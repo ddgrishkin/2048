@@ -1,16 +1,23 @@
 .container {
   padding: 16px;
-  background-color: var(--game2048-global-color-secondary-100);
+  background: var(--game2048-secondary-color);
   display: flex;
   align-items: center;
 	justify-content: center;
   box-sizing: border-box;
   height: 100vh;
+  font-size: 24px;
+}
+
+.content {
+  width: 100%;
+  max-width: 544px;
 }
 
 @media (max-width: 600px) {
   .container {
-    --game2048-cell-padding: 4px;
+    font-size: 16px;
+    --game2048-cell-padding: 2px;
     --game2048-cell-font-size: 22px;
   }
 }

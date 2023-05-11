@@ -1,0 +1,45 @@
+.content {
+  padding: 2em 1em 3em;
+  display: grid;
+  gap: 16px;
+  align-content: center;
+  justify-content: center;
+  grid-auto-rows: min-content;
+  grid-template-columns: min-content;
+  box-sizing: border-box;
+  background: var(--game2048-primary-color);
+  border-radius: 8px;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+}
+
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 0;
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
+  background: var(--game2048-secondary-color);
+  color: var(--game2048-secondary-color-text);
+  font-family: var(--game2048-font-family);
+  line-height: var(--game2048-font-height);
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.hint {
+  display: inline-block;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.75em;
+  font-family: var(--game2048-font-family);
+  line-height: var(--game2048-font-height);
+  color: var(--game2048-secondary-color-text);
+}

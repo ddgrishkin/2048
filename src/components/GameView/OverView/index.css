@@ -4,7 +4,6 @@
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	background: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   right: 0;
@@ -13,22 +12,21 @@
 
 .content {
 	width: 100%;
-	text-align: center;
 	padding: 16px;
+	text-align: center;
 	border-radius: 8px;
-	background: var(--game2048-global-color-secondary-100);
-	color: var(--game2048-global-color-secondary-text-100);
-	box-shadow: 0 0 0 8px var(--game2048-global-color-secondary-200);
+	color: var(--game2048-primary-color-text);
+	background: var(--game2048-primary-color);
+	box-shadow: 0 0 16px var(--game2048-primary-color);
 }
 
 .title {
-	color: var(--game2048-global-color-secondary-text-300);
-  font-family: var(--game2048-global-font-family);
-  font-size: var(--game2048-global-font-size-xl);
+	font-family: var(--game2048-font-family);
 	font-weight: bold;
+	font-size: 1.25em;
 }
 
 .subtitle {
-	font-family: var(--game2048-global-font-family);
-  font-size: var(--game2048-global-font-size-sm);
+	font-family: var(--game2048-font-family);
+	font-size: 0.75em;
 }

@@ -1,26 +1,18 @@
 import React, {useCallback, useEffect, useState, useRef} from 'react';
 import {useSwipeable} from 'react-swipeable';
-
-// hooks imports
 import {useGameManager} from 'hooks/useGameManager';
 import {useClickOutside} from 'hooks/useClickOutside';
 import {useBooleanState} from 'hooks/useBooleanState';
-
-// components imports
 import {Score} from 'components/Score';
+import {ButtonClose} from 'components/ButtonClose';
 import {ButtonRestart} from 'components/ButtonRestart';
 import {ButtonSettings} from 'components/ButtonSettings';
-import {DialogSettings} from 'components/DialogSettings';
-
-// lib imports
 import {throttle} from 'lib/event';
-import {useDialogManager} from 'lib/dialog/hooks';
 import {GameConfigContext} from 'lib/game/context';
 import {DEFAULT_CONFIG} from 'lib/game/constants';
 import {DIRECTION_BY_KEY, DIRECTION_BY_SWIPE} from 'lib/game/constants';
-
-// local imports
-import {GridView} from './GridView';
+import {SettingsView} from './SettingsView';
+import {FieldView} from './FieldView';
 import {CellsView} from './CellsView';
 import {OverView} from './OverView';
 import {PlayView} from './PlayView';
@@ -29,11 +21,11 @@ import styles from './index.css';
 const THROTTLE_DURATION = 100;
 
 export function GameView() {
+	const progressState = useBooleanState();
+	const settingsState = useBooleanState();
 	const dialogRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
-	const dialogManager = useDialogManager();
-	const progressState = useBooleanState();
-	const [config, setConfig] = useState(() => DEFAULT_CONFIG);
+	const [config, setConfig] = useState(DEFAULT_CONFIG);
 	const {cells, score, isOver, restart, move} = useGameManager(config);
 
 	const handleMove = useCallback(throttle(move, THROTTLE_DURATION), [move]);
@@ -68,18 +60,6 @@ export function GameView() {
 		}
 	}, [progressState.value]);
 
-	const handleOpenSettings = useCallback(() => {
-		const close = dialogManager.close.bind(dialogManager);
-		dialogManager.open(
-			<DialogSettings
-				ref={dialogRef}
-				config={config}
-				onSave={setConfig}
-				onClose={close}
-			/>
-		);
-	}, [config]);
-
 	return (
 		<GameConfigContext.Provider value={config}>
 			<div ref={contentRef} className={styles.content} onClick={progressState.setTrue}>
@@ -89,15 +69,26 @@ export function GameView() {
 							<Score value={score} />
 							<ButtonRestart onClick={restart} />
 						</div>
-						<ButtonSettings onClick={handleOpenSettings} />
+						{settingsState.value
+							? <ButtonClose onClick={settingsState.setFalse} />
+							: <ButtonSettings onClick={settingsState.setTrue} />}
 					</div>
 				</div>
-				<div {...handlers} className={styles.field}>
-					<GridView />
-					<CellsView cells={cells} />
-					{isOver && <OverView />}
-					{!isOver && !progressState.value && <PlayView />}
-				</div>
+				{!settingsState.value && (
+					<div {...handlers} className={styles.field}>
+						<FieldView />
+						<CellsView cells={cells} />
+						{isOver && <OverView />}
+						{!isOver && !progressState.value && <PlayView />}
+					</div>
+				)}
+				{settingsState.value && (
+					<SettingsView
+						config={config}
+						onSave={setConfig}
+						onClose={settingsState.setFalse}
+					/>
+				)}
 			</div>
 		</GameConfigContext.Provider>
 	);

@@ -8,7 +8,9 @@ type Props = {
 export function Layout({children}: Props): React.ReactElement {
 	return (
 		<div className={styles.container}>
-			{children}
+			<div className={styles.content}>
+				{children}
+			</div>
 		</div>
 	);
 };

@@ -1,4 +1,14 @@
 :root {
-	--game2048-cell-padding: 8px;
+	--game2048-cell-padding: 4px;
   --game2048-cell-font-size: 36px;
+
+	/* color */
+	--game2048-primary-color: #741320;
+	--game2048-secondary-color: #D73C45;
+	--game2048-primary-color-text: #FFFFFF;
+	--game2048-secondary-color-text: #FFFFFF;
+
+	/* typography */
+	--game2048-font-height: 1.2;
+	--game2048-font-family: monospace;
 }

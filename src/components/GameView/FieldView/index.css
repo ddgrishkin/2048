@@ -2,7 +2,7 @@
   padding: 8px;
   border-radius: 8px;
   box-sizing: border-box;
-  background: var(--game2048-global-color-primary-100);
+  background: var(--game2048-primary-color);
 }
 
 .row {
@@ -14,9 +14,10 @@
   box-sizing: border-box;
 }
 
-.inner {
+.cell .inner {
   width: 100%;
+  opacity: 0.1;
   padding-top: 100%;
   border-radius: 4px;
-  background: var(--game2048-global-color-primary-200);
+  background: var(--game2048-primary-color-text);
 }

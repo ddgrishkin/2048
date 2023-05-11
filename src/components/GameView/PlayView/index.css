@@ -8,27 +8,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .content {
-	text-align: center;
 	width: 100%;
-	padding: 24px 16px;
-	font-size: var(--game2048-global-font-size-lg);
-	font-family: var(--game2048-global-font-family);
-	color: var(--game2048-global-color-secondary-text-100);
-	background: var(--game2048-global-color-secondary-100);
-	box-shadow: 0 0 0 8px var(--game2048-global-color-secondary-200);
+	padding: 32px 0;
+	border-radius: 8px;
+	text-align: center;
+	color: var(--game2048-primary-color-text);
+	background: var(--game2048-primary-color);
+	box-shadow: 0 0 16px var(--game2048-primary-color);
 }
 
 .title {
+	font-family: var(--game2048-font-family);
 	font-weight: bold;
-	margin-bottom: 4px;
-	font-size: var(--game2048-global-font-size-xl);
+	font-size: 1.25em;
 }
 
 .subtitle {
-	font-size: var(--game2048-global-font-size-sm);
-	line-height: var(--game2048-global-font-height);
+	font-family: var(--game2048-font-family);
+	font-size: 0.75em;
 }

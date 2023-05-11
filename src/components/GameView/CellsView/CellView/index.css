@@ -28,9 +28,9 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: var(--game2048-global-color-primary-text-100);
-  font-family: var(--game2048-global-font-family);
-  line-height: var(--game2048-global-font-height);
+  color: white;
+  font-family: var(--game2048-font-family);
+  line-height: var(--game2048-font-height);
   font-size: var(--game2048-cell-font-size);
   letter-spacing: -4px;
 }

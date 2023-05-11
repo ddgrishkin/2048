@@ -12,19 +12,18 @@ const BASE_PLUGINS = [
 		protectWebpackAssets: false,
 		cleanAfterEveryBuildPatterns: ['*LICENSE.txt'],
 	}),
-	new CopyWebpackPlugin({
-		patterns: [
-			{
-				from: path.resolve(__dirname, '../src/styles'),
-				to: 'css',
-			},
-		],
-	}),
 ];
 
 module.exports = function getPlugins() {
 	if (process.env.NODE_ENV === 'production') {
-		return BASE_PLUGINS;
+		return [
+			...BASE_PLUGINS,
+			new CopyWebpackPlugin({
+				patterns: [
+					path.resolve(__dirname, '../src/game.css'),
+				],
+			}),
+		];
 	}
 
 	return [

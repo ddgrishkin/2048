@@ -1,6 +1,6 @@
 {
   "name": "@ddgrishkin/game2048",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "2048 game",
   "main": "dist/index.js",
   "scripts": {

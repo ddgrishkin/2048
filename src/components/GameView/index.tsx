@@ -23,7 +23,6 @@ const THROTTLE_DURATION = 100;
 export function GameView() {
 	const progressState = useBooleanState();
 	const settingsState = useBooleanState();
-	const dialogRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const [config, setConfig] = useState(DEFAULT_CONFIG);
 	const {cells, score, isOver, restart, move} = useGameManager(config);
@@ -40,7 +39,6 @@ export function GameView() {
 	});
 
 	useClickOutside({
-		exludeRef: dialogRef,
 		targetRef: contentRef,
 		onClickOutside: progressState.setFalse,
 	});

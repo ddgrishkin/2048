@@ -5,4 +5,4 @@ Reproduction of the popular game 2048.
 <img src="./preview.png" width="360px" />
 
 ## CSS Variables
-Look into `./src/styles` to see available css variables you could reuse or redifine in your app.
+Look into [./src/game.css](./src/game.css) to see available css variables you could reuse or redifine in your app.

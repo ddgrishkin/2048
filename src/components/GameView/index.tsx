@@ -4,30 +4,41 @@ import {useGameManager} from 'hooks/useGameManager';
 import {useClickOutside} from 'hooks/useClickOutside';
 import {useBooleanState} from 'hooks/useBooleanState';
 import {Score} from 'components/Score';
-import {ButtonClose} from 'components/ButtonClose';
 import {ButtonRestart} from 'components/ButtonRestart';
 import {ButtonSettings} from 'components/ButtonSettings';
 import {throttle} from 'lib/event';
+import {GameConfig} from 'lib/game/types';
 import {GameConfigContext} from 'lib/game/context';
-import {DEFAULT_CONFIG} from 'lib/game/constants';
-import {DIRECTION_BY_KEY, DIRECTION_BY_SWIPE} from 'lib/game/constants';
+import {
+	DEFAULT_CONFIG,
+	DIRECTION_BY_KEY,
+	DIRECTION_BY_SWIPE,
+	MOVE_THROTTLE_DURATION,
+} from 'lib/game/constants';
+
 import {SettingsView} from './SettingsView';
 import {FieldView} from './FieldView';
+import {PauseView} from './PauseView';
 import {CellsView} from './CellsView';
 import {OverView} from './OverView';
-import {PlayView} from './PlayView';
 import styles from './index.css';
 
-const THROTTLE_DURATION = 100;
+export type Props = {
+	intialConfig?: GameConfig;
+	configurable?: boolean;
+};
 
-export function GameView() {
+export function GameView({
+	intialConfig = DEFAULT_CONFIG,
+	configurable = false,
+}: Props) {
 	const progressState = useBooleanState();
 	const settingsState = useBooleanState();
 	const contentRef = useRef<HTMLDivElement>(null);
-	const [config, setConfig] = useState(DEFAULT_CONFIG);
+	const [config, setConfig] = useState(intialConfig);
 	const {cells, score, isOver, restart, move} = useGameManager(config);
 
-	const handleMove = useCallback(throttle(move, THROTTLE_DURATION), [move]);
+	const handleMove = useCallback(throttle(move, MOVE_THROTTLE_DURATION), [move]);
 	const handlers = useSwipeable({
 		touchEventOptions: {passive: false},
 		onSwiped(event) {
@@ -67,9 +78,12 @@ export function GameView() {
 							<Score value={score} />
 							<ButtonRestart onClick={restart} />
 						</div>
-						{settingsState.value
-							? <ButtonClose onClick={settingsState.setFalse} />
-							: <ButtonSettings onClick={settingsState.setTrue} />}
+						{configurable && (
+							<ButtonSettings
+								isOpen={settingsState.value}
+								onClick={settingsState.toggle}
+							/>
+						)}
 					</div>
 				</div>
 				{!settingsState.value && (
@@ -77,7 +91,7 @@ export function GameView() {
 						<FieldView />
 						<CellsView cells={cells} />
 						{isOver && <OverView />}
-						{!isOver && !progressState.value && <PlayView />}
+						{!isOver && !progressState.value && <PauseView />}
 					</div>
 				)}
 				{settingsState.value && (

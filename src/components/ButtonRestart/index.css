@@ -16,7 +16,7 @@
 }
 
 .button:hover .icon {
-  transform: rotate(-45deg);
+  transform: rotate(-90deg);
   transform-origin: center;
 }
 

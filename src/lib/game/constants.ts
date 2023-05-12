@@ -3,6 +3,8 @@ import {GameConfig} from 'lib/game/types';
 import {Direction} from 'lib/types';
 import {Key} from 'lib/event/types';
 
+export const MOVE_THROTTLE_DURATION = 100;
+
 export const DIRECTIONS: Direction[] = ['up', 'right', 'down', 'left'];
 export const DIRECTION_BY_SWIPE: Record<SwipeDirections, Direction> = {
   'Up': 'up',

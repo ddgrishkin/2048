@@ -11,6 +11,6 @@ const root = createRoot(element!);
 
 root.render(
 	<Layout>
-		<App />
+		<App configurable />
 	</Layout>
 );

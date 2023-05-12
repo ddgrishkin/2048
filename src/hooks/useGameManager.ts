@@ -1,5 +1,5 @@
 import {StorageByCoord} from 'lib/helpers/StorageByCoord';
-import {useState, useCallback, useMemo, useEffect, useRef} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 import {GameConfig} from 'lib/game/types';
 import {ReactCell} from 'lib/react';
 import {Direction} from 'lib/types';
@@ -11,31 +11,37 @@ type State = {
 	isOver: boolean;
 };
 
+const defaultState: State = {
+	cells: [],
+	score: 0,
+	isOver: false,
+};
+
 export function useGameManager(config: GameConfig) {
-	const game = useMemo(() => new Game(config), [config]);
+	const [game, setGame] = useState<Game>();
 	const gameRef = useRef(game);
 	gameRef.current = game;
 
 	const getInitialState = useCallback((): State => {
-		const cells = gameRef.current.values().map(({coord, value}) => (
+		const cells = gameRef.current?.values().map(({coord, value}) => (
 			new ReactCell(value, coord)
 		));
 
-		return {
+		return Object.assign(defaultState, {
 			cells,
-			score: gameRef.current.score,
-			isOver: gameRef.current.isOver,
-		};
+			score: gameRef.current?.score,
+			isOver: gameRef.current?.isOver,
+		});
 	}, []);
 
-	const [state, setState] = useState<State>(getInitialState);
+	const [state, setState] = useState<State>(defaultState);
 	const restart = useCallback(() => {
-		gameRef.current.restart();
+		gameRef.current?.restart();
 		setState(getInitialState());
 	}, []);
 
 	const move = useCallback((direction: Direction) => {
-		const moveState = gameRef.current.move(direction);
+		const moveState = gameRef.current?.move(direction);
 		if (moveState) {
 			setState(({cells}) => {
 				const cellByCoord = new StorageByCoord<ReactCell>();
@@ -74,8 +80,11 @@ export function useGameManager(config: GameConfig) {
 		}
 	}, []);
 
-	useEffect(() => () => {
-		restart();
+	useEffect(() => {
+		setGame(new Game(config));
+		setState(getInitialState);
+
+		return restart;
 	}, [config]);
 
 	return {

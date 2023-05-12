@@ -3,7 +3,7 @@
   left: 0;
   position: absolute;
   box-sizing: border-box;
-  padding: var(--game2048-cell-padding);
+  padding: 0.125em;
   transition: transform 100ms ease;
 }
 
@@ -29,9 +29,9 @@
   justify-content: center;
   font-weight: bold;
   color: white;
+  font-size: 1.5em;
   font-family: var(--game2048-font-family);
   line-height: var(--game2048-font-height);
-  font-size: var(--game2048-cell-font-size);
   letter-spacing: -4px;
 }
 

@@ -10,7 +10,7 @@
 }
 
 .cell {
-  padding: var(--game2048-cell-padding);
+  padding: 0.125em;
   box-sizing: border-box;
 }
 

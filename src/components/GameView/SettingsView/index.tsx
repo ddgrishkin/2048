@@ -44,7 +44,6 @@ export function SettingsView({config, onClose, onSave}: Props) {
         onChange={handleChangeGeneric('cols')}
       />
       <SettingsField
-        // label='Rows'
         options={VALUES_ROWS}
         value={nextConfig.rows}
         onChange={handleChangeGeneric('rows')}

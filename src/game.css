@@ -1,6 +1,6 @@
 :root {
 	--game2048-cell-padding: 4px;
-  --game2048-cell-font-size: 36px;
+	--game2048-cell-font-size: 36px;
 
 	/* color */
 	--game2048-primary-color: #7F6952;

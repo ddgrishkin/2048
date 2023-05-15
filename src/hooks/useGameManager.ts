@@ -27,7 +27,7 @@ export function useGameManager(config: GameConfig) {
 			new ReactCell(value, coord)
 		));
 
-		return Object.assign(defaultState, {
+		return Object.assign({}, defaultState, {
 			cells,
 			score: gameRef.current?.score,
 			isOver: gameRef.current?.isOver,

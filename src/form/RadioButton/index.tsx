@@ -8,9 +8,10 @@ type Props = {
 	children: React.ReactNode;
 	defaultChecked?: boolean;
 	onClick?(value: string): void;
+	onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-export function RadioButton({name, value, children, checked, defaultChecked, onClick}: Props) {
+export function RadioButton({name, value, children, checked, defaultChecked, onClick, onChange}: Props) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const handleClick = useCallback(() => {
 		if (inputRef.current) {
@@ -28,6 +29,7 @@ export function RadioButton({name, value, children, checked, defaultChecked, onC
 				name={name}
 				value={value}
 				checked={checked}
+				onChange={onChange}
 				className={styles.input}
 				defaultChecked={defaultChecked}
 			/>

@@ -11,8 +11,8 @@ type Props = {
 }
 
 export function SettingsField({label, options, value, onChange}: Props): React.ReactElement {
-	const handleClick = useCallback((nextValue: string) => {
-		onChange(Number(nextValue));
+	const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+		onChange(Number(event.target.value));
 	}, [onChange]);
 
 	return (
@@ -24,7 +24,7 @@ export function SettingsField({label, options, value, onChange}: Props): React.R
 						key={rows}
 						name='rows'
 						value={`${rows}`}
-						onClick={handleClick}
+						onChange={handleChange}
 						checked={value === rows}
 					>
 						<div

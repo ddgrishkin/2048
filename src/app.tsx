@@ -1,3 +1,3 @@
-import {GameView} from 'components/GameView';
+import {GameView} from '@/ui/GameView';
 
 export default GameView;

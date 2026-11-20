@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import styles from './index.css';
+import {useCallback} from 'react';
+import styles from './ButtonRestart.module.css';
 
 export type Props = {
   onClick(): void;

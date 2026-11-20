@@ -3,13 +3,15 @@
   "version": "0.0.11",
   "description": "2048 game",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Skip tests\"",
     "test:types": "tsc --noEmit",
-    "build": "NODE_ENV=production webpack",
-    "build:dev": "NODE_ENV=development webpack",
-    "dev": "NODE_ENV=development webpack serve",
-    "prepare": "npm run build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -18,31 +20,28 @@
   "author": "Daniil Grishkin",
   "license": "ISC",
   "devDependencies": {
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
-    "@types/uuid": "^9.0.0",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.3",
-    "css-minimizer-webpack-plugin": "^5.0.0",
-    "dotenv": "^16.0.3",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.5",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.4",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
-  },
-  "peerDependencies": {
-    "classnames": "2.x",
-    "react": "18.x",
-    "react-dom": "18.x",
-    "uuid": "9.x"
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-a11y": "^10.6.8",
+    "@storybook/addon-docs": "^10.6.8",
+    "@storybook/addon-vitest": "^10.6.8",
+    "@storybook/react-vite": "^10.6.8",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest",
+    "storybook": "^10.6.8",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "latest"
   },
   "dependencies": {
-    "classnames": "2.x",
-    "react-swipeable": "^7.0.0",
-    "uuid": "9.x"
+    "classnames": "^2.5.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "uuid": "^14.0.3"
   }
 }
